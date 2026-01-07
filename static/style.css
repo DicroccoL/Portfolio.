@@ -146,6 +146,7 @@ body::before {
     height: 32px;
     cursor: pointer;
     transition: transform 0.2s ease, filter 0.2s ease;
+    color:white
 }
 
 .social-carousel img:hover {
@@ -231,4 +232,11 @@ p, h1, h2, h3, span, li {
         width: 26px;
         height: 26px;
     }
+    .menu-item {
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+    }
+
 }
