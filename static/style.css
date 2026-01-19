@@ -1,0 +1,242 @@
+body {
+    background: #b2b2c4;
+    font-family: "Roboto", sans-serif;
+    color: white;
+    margin: 0;
+    overflow: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: -50%;
+    z-index: -2;
+
+    background: radial-gradient(
+        circle at 30% 30%,
+        rgba(255,255,255,0.04),
+        rgba(0,0,0,0.9)
+    );
+
+    background-size: 200% 200%;
+    animation: darkWaves 80s ease-in-out infinite;
+}
+
+
+@keyframes darkWaves {
+    0% {
+        background-position: 0% 0%;
+        transform: scale(1);
+    }
+
+    50% {
+        background-position: 100% 100%;
+        transform: scale(1.02);
+    }
+
+    100% {
+        background-position: 0% 0%;
+        transform: scale(1);
+    }
+}
+
+
+
+/*hasta aca lo nuevo    */
+
+
+
+.layout {
+    display: flex;
+    height: 100vh;
+    padding: 60px;
+    box-sizing: border-box;
+}
+
+.contenido {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding-left: 80px;
+}
+
+/* Welcome */
+.welcome {
+    max-width: 600px;
+}
+
+.welcome h1 {
+    font-size: 72px;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+.welcome p {
+    font-size: 18px;
+    opacity: 0.75;
+    line-height: 1.6;
+}
+
+/* Menú isla */
+.menu-isla {
+    display: flex;
+    gap: 8px;
+    background: rgba(255,255,255,0.06);
+    padding: 12px 20px;
+    border-radius: 40px;
+    backdrop-filter: blur(10px);
+    width: fit-content;
+}
+
+.menu-isla.derecha {
+    position: fixed;
+    right: 60px;
+    top: 50%;
+    transform: translateY(-50%);
+    flex-direction: column;
+}
+
+/* Botones */
+.menu-item {
+    padding: 10px 18px;
+    border-radius: 20px;
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.3s ease;
+}
+
+.menu-item:hover {
+    background: rgba(255,255,255,0.15);
+    transform: translateY(-3px);
+    box-shadow: 0px 8px 18px rgba(0,0,0,0.40);
+}
+
+.menu-item.active {
+    background: #ffffff;
+    color: #000;
+}
+
+/* Contenido */
+.contenedor-sobre-mi {
+    width: 70%;
+    padding: 25px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 20px;
+    backdrop-filter: blur(8px);
+    font-size: 18px;
+    display: none;
+}
+
+
+/* Estilo de carrusel social */
+
+.social-carousel {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    animation: moveCarousel 12s linear infinite;
+}
+
+.social-carousel img {
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    transition: transform 0.2s ease, filter 0.2s ease;
+    color:white
+}
+
+.social-carousel img:hover {
+    transform: scale(1.2);
+    filter: brightness(1.4);
+}
+
+/* Animación infinita */
+@keyframes moveCarousel {
+    0%   { transform: translateX(0); }
+    50%  { transform: translateX(-60px); }
+    100% { transform: translateX(0); }
+}
+
+body {
+    cursor: default;
+}
+p, h1, h2, h3, span, li {
+    cursor: default;
+}
+
+
+/*Adaptacion movil*/
+@media (max-width: 768px) {
+
+    body {
+        padding: 0;
+    }
+
+    /* Layout general */
+    .layout {
+        flex-direction: column;
+        padding: 20px;
+        height: auto;
+    }
+
+    .contenido {
+        padding-left: 0;
+        align-items: flex-start;
+    }
+
+    /* Welcome */
+    .welcome h1 {
+        font-size: 42px;
+    }
+
+    .welcome p {
+        font-size: 16px;
+    }
+
+    /* Menú isla pasa abajo */
+    .menu-isla.derecha {
+        position: fixed;
+        bottom: 16px;
+        top: auto;
+        right: 50%;
+        transform: translateX(50%);
+        flex-direction: row;
+        padding: 10px 14px;
+        z-index: 10;
+    }
+
+    .menu-item {
+        font-size: 14px;
+        padding: 8px 14px;
+    }
+
+    /* Contenedores */
+    .contenedor-sobre-mi {
+        width: 100%;
+        margin-top: 20px;
+        font-size: 16px;
+    }
+
+    /* Carrusel redes */
+    .social-carousel {
+        top: 12px;
+        right: 12px;
+        animation-duration: 20s;
+    }
+
+    .social-carousel img {
+        width: 26px;
+        height: 26px;
+    }
+    .menu-item {
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+    }
+
+}
